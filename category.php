@@ -7,7 +7,7 @@
       <div class="row">
 
          <div class="ten columns centered text-center">
-            <h1>Our Blog<span>.</span></h1>
+            <h1>Category<span>.</span></h1>
 
             <p>Aenean condimentum, lacus sit amet luctus lobortis, dolores et quas molestias excepturi
             enim tellus ultrices elit, amet consequat enim elit noneas sit amet luctu. </p>
@@ -25,54 +25,43 @@
 
          <div id="primary" class="eight columns">
 
-            <?php  
-               $args = array(
-                  "numberposts"     => 3,
-                  "post_type"       => "post",
-                  "supress_filters" => true,
-               );
-               $posts = get_posts($args);
 
-               foreach ($posts as $post) {
-                  setup_postdata($post);
-               ?>
-                  
-                   <article class="post">
+            <?php if ( have_posts() ) :  while ( have_posts() ) : the_post(); ?>
+ 
+               <article class="post">
 
-                     <div class="entry-header cf">
+                  <div class="entry-header cf">
 
-                        <h1><a href="<?php the_permalink() ?>" title=""> <?php the_title() ?> </a></h1>
+                     <h1><a href="<?php the_permalink() ?>" title=""> <?php the_title() ?> </a></h1>
 
-                        <p class="post-meta">
+                     <p class="post-meta">
 
-                           <time class="date" datetime="2014-01-14T11:24"><?php the_time("F, jS, Y") ?></time>
-                           /
-                           <span class="categories">
-                              <?php the_tags("", " / ") ?>
-                           </span>
+                        <time class="date" datetime="2014-01-14T11:24"><?php the_time("F, jS, Y") ?></time>
+                        /
+                        <span class="categories">
+                           <?php the_tags("", " / ") ?>
+                        </span>
 
-                        </p>
+                     </p>
 
-                     </div>
+                  </div>
 
-                     <div class="post-thumb">
-                        <a href="single.html" title=""><?php the_post_thumbnail("post_thumb") ?></a>
-                     </div>
+                  <div class="post-thumb">
+                     <a href="single.html" title=""><?php the_post_thumbnail("post-thumb") ?></a>
+                  </div>
 
-                     <div class="post-content">
+                  <div class="post-content">
 
-                        <p>
-                           <?php the_content(); ?>
-                        </p>
+                     <p>
+                        <?php the_content(); ?>
+                     </p>
 
-                     </div>
+                  </div>
 
-                  </article> <!-- post end -->
+               </article> <!-- post end -->
 
-               <?php 
-                  }
-                  wp_reset_postdata();
-                ?>
+            <?php endwhile; ?>
+            <?php endif; ?>
 
 
             <!-- Pagination -->
@@ -143,4 +132,4 @@
 
    <!-- footer
    ================================================== -->
-<?php get_footer(); ?>
+<?php get_footer(); ?>s
