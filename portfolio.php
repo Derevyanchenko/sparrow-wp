@@ -69,7 +69,7 @@
                       <div class="link-icon"><i class="fa fa-link"></i></div>
                     </a>
                     <div class="portfolio-item-meta">
-                      <h5><a href="portfolio.html"><?php the_title(); ?></a></h5>
+                      <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
                       <p><?php the_excerpt(); ?></p>
                     </div>
                   </div>
