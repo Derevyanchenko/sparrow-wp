@@ -19,10 +19,43 @@ function register_my_widgets(){
 	) );
 }
 
+
+add_action('init', 'my_custom_init');
+function my_custom_init(){
+	register_post_type('portfolio', array(
+		'labels'             => array(
+			'name'               => 'portfolio', // Основное название типа записи
+			'singular_name'      => 'portfolio', // отдельное название записи типа Book
+			'add_new'            => 'Добавить работу',
+			'add_new_item'       => 'Добавить новую работу',
+			'edit_item'          => 'Редактировать работу',
+			'new_item'           => 'Новая рвабота',
+			'view_item'          => 'Посмотреть работу',
+			'search_items'       => 'Найти работу',
+			'not_found'          =>  'работ не найдено',
+			'not_found_in_trash' => 'В корзине работ не найдено',
+			'parent_item_colon'  => '',
+			'menu_name'          => 'Портфолио'
+
+		  ),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => true,
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => 4,
+		'supports'           => array('title','editor','author','thumbnail','excerpt')
+	) );
+}
+
 function theme_register_nav_menu() {
 	register_nav_menu( 'top', 'Меню в шапке' );
 	add_theme_support( 'title-tag' );
-	add_theme_support("post-thumbnails", array("post"));
+	add_theme_support("post-thumbnails", array("post", "portfolio"));
 	add_image_size("post_thumb", 1300, 500, true);
 }
 
