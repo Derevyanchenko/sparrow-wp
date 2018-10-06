@@ -76,7 +76,7 @@
 
 
             <!-- Pagination -->
-            <nav class="col full pagination">
+<!--             <nav class="col full pagination">
   			      <ul>
                   <li><span class="page-numbers prev inactive">Prev</span></li>
   				      <li><span class="page-numbers current">1</span></li>
@@ -90,7 +90,7 @@
                   <li><a href="#" class="page-numbers">9</a></li>
   				      <li><a href="#" class="page-numbers next">Next</a></li>
   			      </ul>
-  		      </nav>
+  		      </nav> -->
 
          </div> <!-- Primary End-->
 
